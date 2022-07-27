@@ -18,6 +18,24 @@ module.exports = {
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
+            },
+            {
+                // suport css import less, so css suffix also passes through the following loader
+                test: /\.(less|css)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            lessOptions: {
+                                globalVars: {
+                                    globalColor: 'red'
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },
