@@ -1,14 +1,16 @@
 import pkg from '../package.json';
-import Button from '../packages/button';
+import * as Vtui from '../packages';
 
 const install = app => {
-    console.log(app);
-    app.use(Button);
+    console.log(app, Vtui);
+    Object.keys(Vtui).forEach(name => app.use(Vtui[name]));
 }
+
+export * from '../packages';
 
 export default {
     install,
-    Button,
+    ...Vtui,
     version: pkg.version,
     name: pkg.name
 }

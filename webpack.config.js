@@ -1,16 +1,21 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+
+const filePath = (relativePath) => {
+    return path.resolve(__dirname, relativePath);
+}
 
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
     entry: {
-        index: './example/src/index.js'
+        index: filePath('/src/index.js'),
+        button: filePath('/packages/button'),
+        typography: filePath('/packages/typography')
     },
     output: {
-        filename: 'js/[name].js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'lib'),
         publicPath: '/'
     },
     module: {
@@ -18,38 +23,13 @@ module.exports = {
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
-            },
-            {
-                // suport css import less, so css suffix also passes through the following loader
-                test: /\.(less|css)$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            lessOptions: {
-                                globalVars: {
-                                    globalColor: 'red'
-                                }
-                            }
-                        }
-                    }
-                ]
             }
         ]
     },
-    devServer: {
-        static: [path.resolve(__dirname, 'example/public'), path.resolve(__dirname, 'dist')],
-        port: 8080,
-        host: 'localhost'
-    },
+    externals: [
+        'vue'
+    ],
     plugins: [
-        new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'example/public/index.html'),
-            filename: 'index.html',
-            chunks: ['index']
-        })
+        new VueLoaderPlugin()
     ]
 }
