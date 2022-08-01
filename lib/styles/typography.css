@@ -1,0 +1,10 @@
+.v-typography {
+  color: rgba(0, 0, 0, 0.85);
+  overflow-wrap: break-word;
+}
+.v-typography.v-typography-secondary {
+  color: rgba(0, 0, 0, 0.45);
+}
+.v-typography.v-typography-success {
+  color: #52c41a;
+}
