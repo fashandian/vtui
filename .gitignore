@@ -5,3 +5,6 @@ dist
 
 # log file
 *.log
+
+# package
+*.tgz
