@@ -6,7 +6,7 @@ const filePath = (relativePath) => {
 }
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     devtool: 'source-map',
     entry: {
         index: filePath('/src/index.js'),
@@ -16,7 +16,12 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'lib'),
-        publicPath: '/'
+        publicPath: '/',
+        library: {
+            name: 'Vtui',
+            type: 'umd'
+        },
+        clean: true
     },
     module: {
         rules: [

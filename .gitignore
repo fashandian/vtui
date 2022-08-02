@@ -8,3 +8,6 @@ dist
 
 # package
 *.tgz
+
+# mac store
+.DS_Store

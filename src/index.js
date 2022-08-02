@@ -6,6 +6,10 @@ const install = app => {
     Object.keys(Vtui).forEach(name => app.use(Vtui[name]));
 }
 
+// if (typeof window !== undefined && window.Vue) {
+//     install(window.Vue);
+// }
+
 export * from '../packages';
 
 export default {
