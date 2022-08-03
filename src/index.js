@@ -10,14 +10,11 @@ const install = app => {
 //     install(window.Vue);
 // }
 
-const getVersion = () => require('../package.json').version
-
 export * from '../packages';
 
 export default {
     install,
     ...Vtui,
-    getVersion,
-    version: getVersion(),
+    version: pkg.version,
     name: pkg.name
 }

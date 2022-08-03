@@ -1,13 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const globalVarsLess = require('./globalVarsOfLess');
+const globalVarsLess = require('../globalVarsOfLess');
+console.log(__dirname)
 
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
     entry: {
-        index: './example/src/index.js'
+        index: '/example/src/index.js'
     },
     output: {
         filename: 'js/[name].js',
@@ -41,14 +42,14 @@ module.exports = {
         ]
     },
     devServer: {
-        static: [path.resolve(__dirname, 'example/public'), path.resolve(__dirname, 'dist')],
+        static: [path.resolve(__dirname, '../example/public'), path.resolve(__dirname, '../dist')],
         port: 8080,
         host: 'localhost'
     },
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'example/public/index.html'),
+            template: path.resolve(__dirname, '../example/public/index.html'),
             filename: 'index.html',
             chunks: ['index']
         })

@@ -4,10 +4,10 @@
   "description": "vue template ui",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "npx webpack serve --config webpack.dev.js --progress --color --hot",
+    "dev": "npx webpack serve --config ./config/webpack.dev.js --progress --color --hot",
     "build:styles": "gulp",
     "build": "npx webpack --progress --color && pnpm run build:styles",
-    "pack:local": "npm version patch -m \"build local test package\" && npm pack"
+    "pack:local": "npm version patch -m \"build local test package\" && pnpm run build && npm pack"
   },
   "author": "fashandian",
   "license": "MIT",
