@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx webpack serve --config webpack.dev.js --progress --color --hot",
     "build:styles": "gulp",
-    "build": "npx webpack --progress --color && pnpm run build:styles"
+    "build": "npx webpack --progress --color && pnpm run build:styles",
+    "pack:local": "npm version patch -m \"build local test package\" && npm pack"
   },
   "author": "fashandian",
   "license": "MIT",

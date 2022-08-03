@@ -1,4 +1,3 @@
-import pkg from '../package.json';
 import * as Vtui from '../packages';
 
 const install = app => {
@@ -15,6 +14,6 @@ export * from '../packages';
 export default {
     install,
     ...Vtui,
-    version: pkg.version,
-    name: pkg.name
+    version: require('../package.json').version,
+    name: require('../package.json').name
 }
