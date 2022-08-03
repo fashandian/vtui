@@ -1,6 +1,6 @@
 {
   "name": "vtui",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vue template ui",
   "main": "lib/index.js",
   "scripts": {
