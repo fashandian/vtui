@@ -6,7 +6,7 @@ const filePath = (relativePath) => {
 }
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     devtool: 'source-map',
     entry: {
         index: filePath('/src/index.js'),
