@@ -4,6 +4,6 @@ VTypography.install = app => {
     app.component(VTypography.name, VTypography);
 }
 
-export const Typrography = VTypography;
+export const Typography = VTypography;
 
 export default VTypography;
