@@ -2,7 +2,7 @@ import * as Vtui from '../packages';
 import pkg from '../package.json';
 
 const install = app => {
-    console.log(app, Vtui);
+    // console.log(app, Vtui);
     Object.keys(Vtui).forEach(name => app.use(Vtui[name]));
 }
 
